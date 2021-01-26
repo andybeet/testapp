@@ -7,6 +7,7 @@
 #' @param session session info
 #' 
 #'@importFrom shiny observeEvent
+#'@importsFrom leaflet clearGroup
 #'@importFrom magrittr %>%
 #'
 #'@export
@@ -17,12 +18,12 @@ server <-  function(input, output, session) {
 ## Leaflet map ##
 #################
 
-output$catch_map = renderLeaflet({
+output$catch_map = leaflet::renderLeaflet({
   # initiates rendering. This all remains same for whole instance of app
   leaflet::leaflet() %>%
     leaflet::setView(lng = -68.73742, lat = 42.31386, zoom = 6) %>%
     leaflet::addProviderTiles(leaflet::providers$Esri.OceanBasemap) %>%
-    leaflet::addScaleBar(position = 'bottomright', options = scaleBarOptions(maxWidth = 250))
+    leaflet::addScaleBar(position = 'bottomright', options = leaflet::scaleBarOptions(maxWidth = 250))
 
 })
 
