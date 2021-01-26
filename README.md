@@ -1,6 +1,8 @@
 # testapp
 
-A test app to show the process of transforming a shiny app to an R package.
+A test app to demonstrate the process of transforming a shiny app to an R package. The repo originates with the app in its traditional form. The commit history steps through changes made from this to its final state - an R package.
+
+Note: This is packaging is currently only set up for running locally. A few further steps are necessary to enable it to be installed on a shiny server.
 
 ## Install 
 
