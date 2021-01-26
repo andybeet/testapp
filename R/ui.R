@@ -1,11 +1,12 @@
-########################################################
-## R Shiny application
-########################################################
-
-
-####################
-## User interface ##
-####################
+#' title
+#'
+#' ui description
+#'
+#'
+#' @import shiny 
+#'
+#'
+#' @export
 
 ui <-  shinydashboard::dashboardPage(
 
@@ -59,7 +60,7 @@ ui <-  shinydashboard::dashboardPage(
                 )  
             ),
             column(width = 9,
-                   shinydashboard::box(title = 'Map', width = NULL, solidHeader = TRUE, status = 'primary', leafletOutput('catch_map',width="100%",height="80vh"))
+                   shinydashboard::box(title = 'Map', width = NULL, solidHeader = TRUE, status = 'primary', leaflet::leafletOutput('catch_map',width="100%",height="80vh"))
             )
         )
 	)

@@ -1,6 +1,15 @@
-############
-## Server ##
-############
+#' Server function
+#'
+#' code to execute server scripts
+#'
+#' @param input input for app
+#' @param output output for app
+#' @param session session info
+#' 
+#'@importFrom shiny observeEvent
+#'@importFrom magrittr %>%
+#'
+#'@export
 
 server <-  function(input, output, session) {
   
@@ -10,10 +19,10 @@ server <-  function(input, output, session) {
 
 output$catch_map = renderLeaflet({
   # initiates rendering. This all remains same for whole instance of app
-  leaflet() %>%
-    setView(lng = -68.73742, lat = 42.31386, zoom = 6) %>%
-    addProviderTiles(providers$Esri.OceanBasemap) %>%
-    addScaleBar(position = 'bottomright', options = scaleBarOptions(maxWidth = 250))
+  leaflet::leaflet() %>%
+    leaflet::setView(lng = -68.73742, lat = 42.31386, zoom = 6) %>%
+    leaflet::addProviderTiles(leaflet::providers$Esri.OceanBasemap) %>%
+    leaflet::addScaleBar(position = 'bottomright', options = scaleBarOptions(maxWidth = 250))
 
 })
 
@@ -21,7 +30,7 @@ output$catch_map = renderLeaflet({
 #    Plot map  #
 ################  
 
-    observeEvent(input$plot_data,{
+    shiny::observeEvent(input$plot_data,{
       
       # clear curnt figure of points
       leafletProxy('catch_map') %>% clearGroup(group = 'year Obs')
