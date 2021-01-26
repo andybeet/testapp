@@ -7,7 +7,7 @@
 #' @param session session info
 #' 
 #'@importFrom shiny observeEvent
-#'@importFrom leaflet clearGroup leafletProxy
+#'@importFrom leaflet clearGroup leafletProxy addCircleMarkers addPolygons addPolylines removeShape
 #'@importFrom magrittr %>%
 #'
 #'
@@ -38,7 +38,7 @@ server <-  function(input, output, session) {
     gearData[[as.character(speciesList$species[ifile])]] <- readRDS(paste0("data/",speciesList$fname[ifile]))
   }
   
-  
+
 #################
 ## Leaflet map ##
 #################
