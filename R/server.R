@@ -16,27 +16,32 @@
 
 server <-  function(input, output, session) {
   
-  ## Read in 75m depth contour (~40 fathoms)
-  contour75m <-  sf::st_read(dsn = here::here("GIS","Contours"), layer = '75m_contour',quiet=T)
+  # load data
+  # Read in 75m depth contour (~40 fathoms)
+  contour75m <-  sf::st_read(dsn = system.file("extdata","GIS","Contours",package="testappbuild"), layer = '75m_contour',quiet=T)
   setcrs <- sf::st_crs(contour75m)
   
   ## Stat Areas
-  statAreas <-  sf::st_read(dsn = here::here("GIS","Statistical_Areas"), layer = 'Statistical_Areas_Simplified',quiet=T)
+  statAreas <-  sf::st_read(dsn = system.file("extdata","GIS","Statistical_Areas",package="testappbuild"), layer = 'Statistical_Areas_Simplified',quiet=T)
   statAreas <- sf::st_transform(statAreas,crs = setcrs)
   ## Unique Stat Areas for selectInput
   selectAreas <-  sort(statAreas$Id)
   
   ## 10min square EPUs
-  EPU10MinSq <- sf::st_read(dsn = here::here("GIS","EPU_WITH_ESTUARIES"), layer = 'EPUS_FULL',quiet=T)
+  EPU10MinSq <- sf::st_read(dsn = system.file("extdata","GIS","EPU_WITH_ESTUARIES",package="testappbuild"), layer = 'EPUS_FULL',quiet=T)
   EPU10MinSq <- sf::st_transform(EPU10MinSq,crs = setcrs)
   
   # Species we have data for
-  speciesList <- readRDS(here::here("data","speciesList.rds"))
+  
+  speciesList <- readRDS(system.file("extdata","rds","speciesList.rds",package="testappbuild"))
   # Location of catch by species, and year
   gearData <- NULL
   for (ifile in 1:length(speciesList$species)){
-    gearData[[as.character(speciesList$species[ifile])]] <- readRDS(paste0("data/",speciesList$fname[ifile]))
+    gearData[[as.character(speciesList$species[ifile])]] <- readRDS(system.file("extdata","rds",speciesList$fname[ifile],package="testappbuild"))
+    
+    # readRDS(paste0("data/",speciesList$fname[ifile]))
   }
+  
   
 
 #################
@@ -208,7 +213,7 @@ output$catch_map = leaflet::renderLeaflet({
 
         content = function(file) {
 
-            mapshot(x = narw_map(), file = file)
+            mapview::mapshot(x = narw_map(), file = file)
 
         }
     
