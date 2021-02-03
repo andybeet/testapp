@@ -1,7 +1,7 @@
 # testapp
 
 
-![gitleaks](https://github.com/NOAA-EDAB/testapp/workflows/gitleaks/badge.svg)
+![gitleaks](https://github.com/andybeet/testapp/workflows/gitleaks/badge.svg)
 
 
 A test app to demonstrate the process of transforming a shiny app to an R package. The repo originates with the app in its traditional form. The commit history steps through changes made from this to its final state - an R package.
