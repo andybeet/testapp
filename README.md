@@ -1,5 +1,9 @@
 # testapp
 
+
+![gitleaks](https://github.com/NOAA-EDAB/LeMANS/workflows/gitleaks/badge.svg)
+
+
 A test app to demonstrate the process of transforming a shiny app to an R package. The repo originates with the app in its traditional form. The commit history steps through changes made from this to its final state - an R package.
 
 Note: This is packaging is currently only set up for running locally. A few further steps are necessary to enable it to be installed on a shiny server.
@@ -11,6 +15,14 @@ Note: This is packaging is currently only set up for running locally. A few furt
 ## Run
 
 ```testapp::runCatch()```
+
+
+## Contact
+
+| [andybeet](https://github.com/andybeet)        
+| ----------------------------------------------------------------------------------------------- 
+| [![](https://avatars1.githubusercontent.com/u/22455149?s=100&v=4)](https://github.com/andybeet) | 
+
 
 
 #### Legal disclaimer
