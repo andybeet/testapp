@@ -1,6 +1,6 @@
 # testapp
 
-
+![Install on windows](https://github.com/andybeet/testapp/workflows/Install%20on%20windows/badge.svg)
 ![gitleaks](https://github.com/andybeet/testapp/workflows/gitleaks/badge.svg)
 
 
